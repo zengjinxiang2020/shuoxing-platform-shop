@@ -68,6 +68,11 @@ public interface SysUserService {
     void deleteBatch(Long[] userIds);
 
     /**
+     * 查询用户总数
+     */
+    int coutTotalUser();
+
+    /**
      * 修改密码
      *
      * @param userId      用户ID

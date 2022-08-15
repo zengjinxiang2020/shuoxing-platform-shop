@@ -108,6 +108,12 @@ public class SysUserServiceImpl implements SysUserService {
     }
 
     @Override
+    public int coutTotalUser() {
+        System.out.println("...");
+        return sysUserDao.coutTotalUser();
+    }
+
+    @Override
     public int updatePassword(Long userId, String password, String newPassword) {
         Map<String, Object> map = new HashMap<>();
         map.put("userId", userId);

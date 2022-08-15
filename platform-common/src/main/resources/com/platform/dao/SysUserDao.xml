@@ -132,4 +132,8 @@
 		</foreach>
 	</delete>
 
+	<select id="coutTotalUser">
+		select * from sys_user
+	</select>
+
 </mapper>

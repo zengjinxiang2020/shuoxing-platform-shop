@@ -2,6 +2,7 @@ package com.platform.dao;
 
 import com.platform.entity.SysUserEntity;
 import com.platform.entity.UserWindowDto;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import java.util.Map;
  * @email 939961241@qq.com
  * @date 2016年9月18日 上午9:34:11
  */
+@Mapper
 public interface SysUserDao extends BaseDao<SysUserEntity> {
 
     /**
@@ -42,4 +44,12 @@ public interface SysUserDao extends BaseDao<SysUserEntity> {
      * @return
      */
     List<UserWindowDto> queryListByBean(UserWindowDto userWindowDto);
+
+    /**
+     * 用户总数
+     * @return
+     */
+    Integer coutTotalUser();
+
+
 }

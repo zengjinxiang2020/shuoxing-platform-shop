@@ -1,5 +1,8 @@
 package com.platform;
 
+import com.platform.controller.SysUserController;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.sql.*;
 
 /**
@@ -16,7 +19,7 @@ public class MysqlTest {
     /**
      * 数据库url
      */
-    private static final String URL = "jdbc:mysql://localhost:3306/platform";
+    private static final String URL = "jdbc:mysql://localhost:3306/platform-shop?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
     /**
      * 用户名
      */
@@ -24,11 +27,14 @@ public class MysqlTest {
     /**
      * 密码
      */
-    private static final String PASSWORD = "mysql123456";
+    private static final String PASSWORD = "123";
     /**
      * mysql驱动程序
      */
-    private static final String ORACLEDRIVER = "com.mysql.jdbc.Driver";
+    private static final String MYSQLDRIVER = "com.mysql.cj.jdbc.Driver";
+
+    @Autowired
+    private static SysUserController sysUserController = new SysUserController();
 
     /**
      * 启动程序
@@ -40,9 +46,12 @@ public class MysqlTest {
         PreparedStatement pre = null;
         ResultSet result = null;
         try {
-            Class.forName(ORACLEDRIVER);
+            Class.forName(MYSQLDRIVER);
             con = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("连接成功！");
+
+            int totalUser = sysUserController.coutTotalUser();
+            System.out.println("用户总数为：" + totalUser);
 
             String sql = "select * from nideshop_user";
             pre = con.prepareStatement(sql);

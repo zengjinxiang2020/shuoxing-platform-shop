@@ -1,7 +1,6 @@
 {
-    "name" : "微同商城",
+    "name" : "威友商城",
     "appid" : "__UNI__EAADE10",
-    "description" : "减少重复造轮子，开源微信小程序商城，秒杀、优惠券、多商户、直播卖货、分销等功能。快速搭建一个属于自己的微信小程序商城。QQ交流群：66502035、870579539、151602347欢迎大家进群交流技术。",
     "versionName" : "1.0.0",
     "versionCode" : 3,
     "transformPx" : false,
@@ -167,7 +166,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx7d1077edf1fd3ae5",
+        "appid" : "wx6f78c75444f851df",
         "setting" : {
             "urlCheck" : false,
             "es6" : true,

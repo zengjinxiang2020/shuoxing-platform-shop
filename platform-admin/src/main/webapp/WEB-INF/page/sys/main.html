@@ -1,54 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>欢迎页</title>
-    #parse("sys/header.html")
-	
-	<script src='https://gitee.com/fuyang_lipengjun/platform/widget_preview'></script>
-	<style>
-		.pro_name a{color: #4183c4;}
-		.osc_git_title{background-color: #fff;}
-		.osc_git_box{background-color: #fff;}
-		.osc_git_box{border-color: #E3E9ED;margin: 20px;}
-		.osc_git_info{color: #666;}
-		.osc_git_main a{color: #9B9B9B;}
-	</style>
+    <meta charset="utf-8" />
+    <title>数据概述</title>
+    <script src="${rc.contextPath}/statics/libs/vue.min.js"></script>
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/font-awesome.css">
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/basic.css">
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/custom.css">
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/my.css">
+    <link rel="stylesheet" href="${rc.contextPath}/statics/css/element/index.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/mustache.js/3.0.1/mustache.js"></script>
+
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-<div class="wrapper wrapper-content  animated fadeInRight">
-    <div class="ibox ">
-        <div class="ibox-title">
-            <h1>项目介绍</h1>
-        </div>
-        <div class="ibox-content">
-            <div class="signin-info">
-                <ul class="m-b">
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 一个轻量级的Java快速开发平台，能快速开发项目</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 使用目前主流的JavaEE开发框架Spring+SpringMVC+Mybatis+Shiro+J2Cache，简单易学，学习成本低</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 友好的代码结构及注释，便于阅读及二次开发</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 完善的XSS防范及脚本过滤，彻底杜绝XSS攻击</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 日志分级输出，便于分析日志</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 前端使用Vue+iView，上手容易</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> <a href="https://gitee.com/fuyang_lipengjun/platform" target="_blank">Git：https://gitee.com/fuyang_lipengjun/platform</a></li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> <a href="https://apidoc.gitee.com/fuyang_lipengjun/platform" target="_blank">JavaDoc：https://apidoc.gitee.com/fuyang_lipengjun/platform</a></li>
-                </ul>
+<div id="wrapper" >
+    <div id="page-inner">
+        <div class="row" >
+            <div class="col-md-3">
+                <div class="main-box mb-olivedrab">
+                    <i class="fa fa-user"></i><span style="margin-left: 20px;">用户总数：{{ totalUser }}</span>
+                </div>
             </div>
-
-        </div>
-    </div>
-    <div class="ibox ">
-        <div class="ibox-title">
-            <h1>官方QQ群</h1>
-        </div>
-        <div class="ibox-content">
-            <div class="signin-info">
-                <ul>
-                    <li><i class="fa fa-qq m-r-xs"></i> 66502035(微同科技)</li>
-                </ul>
-            </div>
-
         </div>
     </div>
 </div>
+<!--vue-->
+<script src="${rc.contextPath}/statics/libs/iview.min.js"></script>
+<!--jquery-->
+<script src="${rc.contextPath}/statics/libs/jquery-1.10.2.js"></script>
+<script src="${rc.contextPath}/statics/libs/bootstrap3.min.js"></script>
+<script src="${rc.contextPath}/statics/libs/jquery.metisMenu.js"></script>
+<script src="${rc.contextPath}/statics/libs/custom.js"></script>
+<script src="${rc.contextPath}/statics/libs/axios.js"></script>
+<script src="${rc.contextPath}/statics/libs/my.js"></script>
+
+<!--echarts-->
+<script src="${rc.contextPath}/statics/libs/echarts.min.js"></script>
+<script src="${rc.contextPath}/statics/element/index.js"></script>
+
+
+<script>
+    new Vue({
+        el: "#wrapper",
+        data:{
+            user:{},
+            totalUser: 10 //用户总数
+        },
+        created:function (){
+            this.user =JSON.parse(localStorage.getItem('user'));
+            // console.log('totalUser is:'+this.totalUser);
+            axios.get("/sys/user/countTotalUser").then( res =>{
+                if(res.data.code === '0'){
+                    let map = res.data.data;
+                    this.totalUser = map['totalUser'];
+                }
+            })
+        },
+        methods:{}
+    });
+</script>
 </body>
 </html>
+

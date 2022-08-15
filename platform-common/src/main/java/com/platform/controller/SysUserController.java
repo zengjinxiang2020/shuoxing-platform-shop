@@ -50,7 +50,7 @@ public class SysUserController extends AbstractController {
         int total = sysUserService.queryTotal(query);
 
         PageUtils pageUtil = new PageUtils(userList, total, query.getLimit(), query.getPage());
-
+        System.out.println("*****");
         return R.ok().put("page", pageUtil);
     }
 
@@ -153,5 +153,16 @@ public class SysUserController extends AbstractController {
         sysUserService.deleteBatch(userIds);
 
         return R.ok();
+    }
+
+    /**
+     * 查询用户总数
+     */
+    @SysLog("查询用户")
+    @RequestMapping("/countTotalUser")
+    @RequiresPermissions("sys:user:update")
+    public int coutTotalUser() {
+        System.out.println("*****");
+        return sysUserService.coutTotalUser();
     }
 }
