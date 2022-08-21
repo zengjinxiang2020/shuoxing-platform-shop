@@ -68,6 +68,8 @@ public class OrderEntity implements Serializable {
     private BigDecimal orderPrice;
     //商品总价
     private BigDecimal goodsPrice;
+    //订单数量
+    private BigDecimal addNumber;
     //新增时间
     private Date addTime;
     //确认时间
@@ -436,13 +438,26 @@ public class OrderEntity implements Serializable {
         this.goodsPrice = goodsPrice;
     }
 
+
     /**
      * 获取：商品总价
      */
     public BigDecimal getGoodsPrice() {
         return goodsPrice;
     }
+    /**
+     * 设置：订单数量
+     */
+    public void setAddNumber(BigDecimal addNumber) {
+        this.addNumber = addNumber ;
+    }
 
+    /**
+     * 获取：订单数量
+     */
+    public BigDecimal getAddNumber() {
+        return addNumber;
+    }
     /**
      * 设置：新增时间
      */

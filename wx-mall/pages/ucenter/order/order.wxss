@@ -29,6 +29,12 @@ page{
     float: left;
 }
 
+.order .kkk{
+    text-align: center;
+
+}
+
+
 .order .h .r{
     float: right;
     color: #b4282d;

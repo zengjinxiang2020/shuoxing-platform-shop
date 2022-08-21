@@ -102,11 +102,14 @@ public class ApiOrderService {
         // * 获取要购买的商品
         List<CartVo> checkedGoodsList = new ArrayList<>();
         BigDecimal goodsTotalPrice;
+        //统计商品总数
+        int goodsTotalNumber = 0;
         if (type.equals("cart")) {
             Map<String, Object> param = new HashMap<String, Object>();
             param.put("user_id", loginUser.getUserId());
             param.put("session_id", 1);
             param.put("checked", 1);
+           //检查购物车商品
             checkedGoodsList = apiCartMapper.queryList(param);
             if (null == checkedGoodsList) {
                 resultObj.put("errno", 400);
@@ -117,6 +120,7 @@ public class ApiOrderService {
             goodsTotalPrice = new BigDecimal(0.00);
             for (CartVo cartItem : checkedGoodsList) {
                 goodsTotalPrice = goodsTotalPrice.add(cartItem.getRetail_price().multiply(new BigDecimal(cartItem.getNumber())));
+                goodsTotalNumber += cartItem.getNumber();
             }
         } else {
             BuyGoodsVo goodsVo = (BuyGoodsVo) J2CacheUtils.get(J2CacheUtils.SHOP_CACHE_NAME, "goods" + loginUser.getUserId());
@@ -124,7 +128,6 @@ public class ApiOrderService {
             //计算订单的费用
             //商品总价
             goodsTotalPrice = productInfo.getRetail_price().multiply(new BigDecimal(goodsVo.getNumber()));
-
             CartVo cartVo = new CartVo();
             BeanUtils.copyProperties(productInfo, cartVo);
             cartVo.setNumber(goodsVo.getNumber());
@@ -172,6 +175,7 @@ public class ApiOrderService {
         orderInfo.setAdd_time(new Date());
         orderInfo.setGoods_price(goodsTotalPrice);
         orderInfo.setOrder_price(orderTotalPrice);
+        orderInfo.setAdd_number(goodsTotalNumber);
         orderInfo.setActual_price(actualPrice);
         // 待付款
         orderInfo.setOrder_status(0);

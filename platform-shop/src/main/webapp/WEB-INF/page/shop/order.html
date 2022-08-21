@@ -173,6 +173,9 @@
             <Form-item label="商品总价" prop="goodsPrice">
                 <i-input v-model="order.goodsPrice" readonly/>
             </Form-item>
+            <Form-item label="订单数量" prop="addNumber">
+                <i-input v-model="order.addNumber" readonly/>
+            </Form-item>
             <Form-item label="下单时间" prop="addTime">
                 <Date-picker v-model="order.addTime" placeholder="使用时间" readonly/>
             </Form-item>

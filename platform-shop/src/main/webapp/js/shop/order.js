@@ -95,6 +95,7 @@ $(function () {
             {label: '实际支付金额', name: 'actualPrice', index: 'actual_price', width: 80},
             {label: '订单总价', name: 'orderPrice', index: 'order_price', width: 60},
             {label: '商品总价', name: 'goodsPrice', index: 'goods_price', width: 60},
+            {label: '订单数量', name: 'addNumber', index: 'add_Number', width: 60},
             {
                 label: '下单时间', name: 'addTime', index: 'add_time', width: 80,
                 formatter: function (value) {

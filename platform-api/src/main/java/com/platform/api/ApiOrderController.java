@@ -70,6 +70,10 @@ public class ApiOrderController extends ApiBaseAction {
         //查询列表数据
         Query query = new Query(params);
         List<OrderVo> orderEntityList = orderService.queryList(query);
+        System.out.println("orderEntityList");
+        for (OrderVo orderVo : orderEntityList){
+            System.out.println("orderVo:" + orderVo);
+        }
         int total = orderService.queryTotal(query);
         ApiPageUtils pageUtil = new ApiPageUtils(orderEntityList, total, query.getLimit(), query.getPage());
         //

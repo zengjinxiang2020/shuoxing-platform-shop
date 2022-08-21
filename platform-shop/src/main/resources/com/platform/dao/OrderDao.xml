@@ -31,6 +31,7 @@
         <result property="orderPrice" column="order_price"/>
         <result property="goodsPrice" column="goods_price"/>
         <result property="addTime" column="add_time"/>
+        <result property="addNumber" column="add_Number"/>
         <result property="confirmTime" column="confirm_time"/>
         <result property="payTime" column="pay_time"/>
         <result property="freightPrice" column="freight_price"/>
@@ -128,7 +129,8 @@
 			`integral_money`, 
 			`order_price`, 
 			`goods_price`, 
-			`add_time`, 
+			`add_time`,
+            `add_number`,
 			`confirm_time`, 
 			`pay_time`, 
 			`freight_price`, 
@@ -164,7 +166,8 @@
 			#{integralMoney}, 
 			#{orderPrice}, 
 			#{goodsPrice}, 
-			#{addTime}, 
+			#{addTime},
+            #{addNumber},
 			#{confirmTime}, 
 			#{payTime}, 
 			#{freightPrice}, 
@@ -203,6 +206,7 @@
             <if test="integralMoney != null">`integral_money` = #{integralMoney},</if>
             <if test="orderPrice != null">`order_price` = #{orderPrice},</if>
             <if test="goodsPrice != null">`goods_price` = #{goodsPrice},</if>
+            <if test="addNumber != null">`order_price` = #{addNuber},</if>
             <if test="addTime != null">`add_time` = #{addTime},</if>
             <if test="confirmTime != null">`confirm_time` = #{confirmTime},</if>
             <if test="payTime != null">`pay_time` = #{payTime},</if>

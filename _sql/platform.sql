@@ -2511,6 +2511,7 @@ CREATE TABLE `nideshop_order` (
   `integral_money` decimal(10,2) DEFAULT '0.00',
   `order_price` decimal(10,2) DEFAULT '0.00' COMMENT '订单总价',
   `goods_price` decimal(10,2) DEFAULT '0.00' COMMENT '商品总价',
+  `add_number` int(10) unsigned DEFAULT NULL,
   `add_time` datetime DEFAULT NULL,
   `confirm_time` datetime DEFAULT NULL,
   `pay_time` datetime DEFAULT NULL,

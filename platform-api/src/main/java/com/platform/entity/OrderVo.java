@@ -76,6 +76,8 @@ public class OrderVo implements Serializable {
     private BigDecimal order_price;
     //商品总价
     private BigDecimal goods_price;
+    //订单数量
+    private int add_number;
     //新增时间
     private Date add_time;
     //确认时间
@@ -323,6 +325,14 @@ public class OrderVo implements Serializable {
         return goods_price;
     }
 
+    public int getAdd_number() {
+        return add_number;
+    }
+
+    public void setAdd_number(int add_number) {
+        this.add_number = add_number;
+    }
+
     public void setGoods_price(BigDecimal goods_price) {
         this.goods_price = goods_price;
     }
@@ -516,5 +526,52 @@ public class OrderVo implements Serializable {
 
     public void setShipping_no(String shipping_no) {
         this.shipping_no = shipping_no;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderVo{" +
+                "id=" + id +
+                ", order_sn='" + order_sn + '\'' +
+                ", user_id=" + user_id +
+                ", order_status=" + order_status +
+                ", shipping_status=" + shipping_status +
+                ", pay_status=" + pay_status +
+                ", consignee='" + consignee + '\'' +
+                ", country='" + country + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", district='" + district + '\'' +
+                ", address='" + address + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", postscript='" + postscript + '\'' +
+                ", shipping_id=" + shipping_id +
+                ", shipping_code='" + shipping_code + '\'' +
+                ", shipping_name='" + shipping_name + '\'' +
+                ", shipping_no='" + shipping_no + '\'' +
+                ", pay_id='" + pay_id + '\'' +
+                ", pay_name='" + pay_name + '\'' +
+                ", shipping_fee=" + shipping_fee +
+                ", actual_price=" + actual_price +
+                ", integral=" + integral +
+                ", integral_money=" + integral_money +
+                ", order_price=" + order_price +
+                ", goods_price=" + goods_price +
+                ", add_number=" + add_number +
+                ", add_time=" + add_time +
+                ", confirm_time=" + confirm_time +
+                ", pay_time=" + pay_time +
+                ", freight_price=" + freight_price +
+                ", coupon_id=" + coupon_id +
+                ", parent_id=" + parent_id +
+                ", coupon_price=" + coupon_price +
+                ", callback_status=" + callback_status +
+                ", goodsCount=" + goodsCount +
+                ", order_status_text='" + order_status_text + '\'' +
+                ", handleOption=" + handleOption +
+                ", full_cut_price=" + full_cut_price +
+                ", full_region='" + full_region + '\'' +
+                ", order_type='" + order_type + '\'' +
+                '}';
     }
 }
