@@ -66,8 +66,11 @@ public class SysLogAspect {
 
         //请求的参数
         Object[] args = joinPoint.getArgs();
-        String params = JSON.toJSONString(args[0]);
-        sysLog.setParams(params);
+
+        if (args.length != 0){
+            String params = JSON.toJSONString(args[0]);
+            sysLog.setParams(params);
+        }
 
         //获取request
         HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
@@ -78,7 +81,9 @@ public class SysLogAspect {
         SysUserEntity sysUserEntity = ShiroUtils.getUserEntity();
         String username = "";
         if ("login".equals(methodName)) {
-            username = params;
+            if (args.length != 0) {
+                username = JSON.toJSONString(args[0]);
+            }
         }
         if (null != sysUserEntity) {
             username = ShiroUtils.getUserEntity().getUsername();

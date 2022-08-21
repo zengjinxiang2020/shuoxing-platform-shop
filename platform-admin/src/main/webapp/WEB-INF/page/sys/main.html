@@ -26,7 +26,22 @@
         <div class="row" >
             <div class="col-md-3">
                 <div class="main-box mb-olivedrab">
-                    <i class="fa fa-user"></i><span style="margin-left: 20px;">用户总数：{{ totalUser }}</span>
+                    <i class="fa fa-user"></i><span style="margin-left: 20px;">用户总数：{{totalUser}}</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="main-box mb-darkseagreen">
+                    <i class="fa fa-comment"></i><span style="margin-left: 20px;">评论总数：{{totalComment}}</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="main-box mb-burlywood">
+                    <i class="fa fa-rmb"></i><span style="margin-left: 20px;">总交易额：{{totalPrice}}</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="main-box mb-cadetblue">
+                    <i class="fa fa-shopping-cart"></i><span style="margin-left: 20px;">总销量：{{totalShopping}}</span>
                 </div>
             </div>
         </div>
@@ -52,15 +67,21 @@
         el: "#wrapper",
         data:{
             user:{},
-            totalUser: 10 //用户总数
+            totalUser: 0, //用户总数
+            totalComment: 0, //评论总数
+            totalPrice: 0, //总交易额
+            totalShopping: 0, //总交易额
         },
         created:function (){
             this.user =JSON.parse(localStorage.getItem('user'));
             // console.log('totalUser is:'+this.totalUser);
-            axios.get("/sys/user/countTotalUser").then( res =>{
-                if(res.data.code === '0'){
-                    let map = res.data.data;
+            axios.get("../sys/user/countTotalUser").then( res =>{
+                if(res.data.code == '0'){
+                    let map = res.data.map;
                     this.totalUser = map['totalUser'];
+                    this.totalComment = map['totalComment'];
+                    this.totalPrice = map['totalPrice'];
+                    this.totalShopping = map['totalShopping'];
                 }
             })
         },

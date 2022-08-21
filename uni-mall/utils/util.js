@@ -4,6 +4,7 @@ const utils = {
 	// domain: 'http://192.168.1.3:8080/',
 	//接口地址
 	interfaceUrl: function() {
+		// return utils.domain + 'platform-framework/api/'
 		return utils.domain + 'platform/api/'
 	},
 	toast: function(text, duration, success) {

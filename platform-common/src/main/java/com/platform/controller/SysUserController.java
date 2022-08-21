@@ -15,6 +15,7 @@ import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -160,9 +161,18 @@ public class SysUserController extends AbstractController {
      */
     @SysLog("查询用户")
     @RequestMapping("/countTotalUser")
-    @RequiresPermissions("sys:user:update")
-    public int coutTotalUser() {
-        System.out.println("*****");
-        return sysUserService.coutTotalUser();
+    @RequiresPermissions("sys:user:list")
+    public R coutTotalUser() {
+        Map<String,Object> map = new HashMap<>();
+        //查询用户总数
+        map.put("totalUser",sysUserService.countTotalUser());
+        //查询评论总数
+        map.put("totalComment",sysUserService.countComment());
+        //查询总交易额
+        map.put("totalPrice",sysUserService.countPrice());
+        //统计总销量
+        map.put("totalShopping",sysUserService.countShopping());
+        System.out.println("totalUser:" + map.get("totalUser"));
+        return R.ok().put("map",map);
     }
 }

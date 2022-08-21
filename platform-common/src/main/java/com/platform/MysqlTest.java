@@ -50,8 +50,8 @@ public class MysqlTest {
             con = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("连接成功！");
 
-            int totalUser = sysUserController.coutTotalUser();
-            System.out.println("用户总数为：" + totalUser);
+//            int totalUser = sysUserController.coutTotalUser();
+//            System.out.println("用户总数为：" + totalUser);
 
             String sql = "select * from nideshop_user";
             pre = con.prepareStatement(sql);

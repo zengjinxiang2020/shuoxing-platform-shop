@@ -132,8 +132,20 @@
 		</foreach>
 	</delete>
 
-	<select id="coutTotalUser">
-		select * from sys_user
+	<select id="countTotalUser" resultType="int">
+		select count(*) from sys_user
+	</select>
+
+	<select id="countComment" resultType="int">
+		select count(*) from nideshop_feedback
+	</select>
+
+	<select id="countPrice" resultType="java.lang.Double">
+		select sum(actual_price) from nideshop_order where order_status = '1' and shipping_status = '1' and pay_status = '2'
+	</select>
+
+	<select id="countShopping" resultType="int">
+		select sum(add_number) from nideshop_order
 	</select>
 
 </mapper>

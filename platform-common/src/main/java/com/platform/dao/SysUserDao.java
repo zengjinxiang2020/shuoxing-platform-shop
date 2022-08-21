@@ -49,7 +49,25 @@ public interface SysUserDao extends BaseDao<SysUserEntity> {
      * 用户总数
      * @return
      */
-    Integer coutTotalUser();
+    Integer countTotalUser();
+
+    /**
+     * 评论总数
+     * @return
+     */
+    Integer countComment();
+
+    /**
+     * 总交易额
+     * @return
+     */
+    Double countPrice();
+
+    /**
+     * 总销量
+     * @return
+     */
+    Integer countShopping();
 
 
 }

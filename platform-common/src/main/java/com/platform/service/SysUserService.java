@@ -67,10 +67,6 @@ public interface SysUserService {
      */
     void deleteBatch(Long[] userIds);
 
-    /**
-     * 查询用户总数
-     */
-    int coutTotalUser();
 
     /**
      * 修改密码
@@ -88,4 +84,28 @@ public interface SysUserService {
      * @return
      */
     Page<UserWindowDto> findPage(UserWindowDto userEntity, int pageNum);
+
+    /**
+     * 用户总数
+     * @return
+     */
+    Integer countTotalUser();
+
+    /**
+     * 评论总数
+     * @return
+     */
+    Integer countComment();
+
+    /**
+     * 总交易额
+     * @return
+     */
+    Double countPrice();
+
+    /**
+     * 总销量
+     * @return
+     */
+    Integer countShopping();
 }
