@@ -69,5 +69,16 @@ public interface SysUserDao extends BaseDao<SysUserEntity> {
      */
     Integer countShopping();
 
+    /**
+     * 分类总销售额
+     * @return
+     */
+    List<Map<String,Object>> getTypePrice();
+
+    /**
+     * 分类总销量
+     * @return
+     */
+    List<Map<String,Object>> getTypeCount();
 
 }

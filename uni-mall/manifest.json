@@ -167,7 +167,6 @@
     /* 小程序特有相关 */
     "mp-weixin" : {
         "appid" : "wxcafa33df05b1d685",
-        /*"appid" : "wxd7a6856dda5b560b",*/
         "setting" : {
             "urlCheck" : false,
             "es6" : true,

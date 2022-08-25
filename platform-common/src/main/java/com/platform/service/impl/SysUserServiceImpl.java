@@ -142,16 +142,28 @@ public class SysUserServiceImpl implements SysUserService {
         return PageHelper.endPage();
     }
 
+    /**
+     * 用户总数
+     * @return
+     */
     @Override
     public Integer countTotalUser() {
         return sysUserDao.countTotalUser();
     }
 
+    /**
+     * 评论总数
+     * @return
+     */
     @Override
     public Integer countComment() {
         return sysUserDao.countComment();
     }
 
+    /**
+     * 总销售额
+     * @return
+     */
     @Override
     public Double countPrice() {
         return sysUserDao.countPrice();
@@ -161,7 +173,22 @@ public class SysUserServiceImpl implements SysUserService {
      * 总销量
      * @return
      */
+    @Override
     public Integer countShopping(){
         return sysUserDao.countShopping();
+    }
+
+    /**
+     * 分类总销售额
+     * @return
+     */
+    @Override
+    public List<Map<String,Object>> getTypePrice(){
+        return sysUserDao.getTypePrice();
+    }
+
+    @Override
+    public List<Map<String, Object>> getTypeCount() {
+        return sysUserDao.getTypeCount();
     }
 }
