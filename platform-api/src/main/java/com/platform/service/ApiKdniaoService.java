@@ -30,9 +30,9 @@ public class ApiKdniaoService {
     }
 
     //电商ID
-    private String EBusinessID = "";
+    private String EBusinessID = "test1773324";
     //电商加密私钥，快递鸟提供，注意保管，不要泄漏
-    private String AppKey = "";
+    private String AppKey = "e00ed621-d4c3-4a87-95b4-5a70752b581e";
     //请求url
     private String ReqURL = "http://api.kdniao.com/Ebusiness/EbusinessOrderHandle.aspx";
 

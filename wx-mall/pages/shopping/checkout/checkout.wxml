@@ -1,4 +1,9 @@
 <view class="container">
+
+    <view style="display:flex; flex-direction: row;justify-content: space-between;">
+        <button class="Cbtn" wx:for="{{anniu}}" wx:key='this' data-index='{{index}}' style="{{index===colorIndex? 'background:#7CCD7C':'background:#FFFFFF'}}" type="default" bindtap="genghuan">{{item}}</button>
+    </view>
+
     <view class="address-box">
         <view class="address-item" bindtap="selectAddress" wx:if="{{checkedAddress.id > 0}}">
             <view class="l">
@@ -33,6 +38,13 @@
                 <image src="/static/images/address_right.png"></image>
             </view>
         </view>
+    
+    </view>
+    <view class="delivery-box">
+                <view class="z">
+                    <image class="icon" src="http://rgjnw7ok9.hn-bkt.clouddn.com/upload/20220821/1544549611ceb3.png"></image>
+                    <text class="txt">配送方式</text>
+                </view>
     </view>
 
     <view class="order-box">

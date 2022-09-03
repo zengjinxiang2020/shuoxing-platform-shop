@@ -31,7 +31,7 @@ public class WechatConfig {
                 instream.close();
             }
             SSLContext sslcontext = SSLContexts.custom().loadKeyMaterial(keyStore, ResourceUtil.getConfigByName("wx.mchId").toCharArray()).build();
-            sslcsf = new SSLConnectionSocketFactory(sslcontext, new String[]{"TLSv1"}, null, SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
+            sslcsf = new SSLConnectionSocketFactory(sslcontext, null, null, SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
         } catch (Exception e) {
             e.printStackTrace();
         }

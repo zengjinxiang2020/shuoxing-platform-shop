@@ -32,8 +32,8 @@ import com.platform.util.CommonUtil;
 
 @Service
 public class ApiOrderService {
-    @Autowired
-    private ApiOrderMapper orderDao;
+//    @Autowired
+//    private ApiOrderMapper orderDao;
     @Autowired
     private ApiAddressMapper apiAddressMapper;
     @Autowired
@@ -48,41 +48,41 @@ public class ApiOrderService {
     private ApiProductService productService;
 
     public OrderVo queryObjectByOrderSn(String orderSn) {
-        return orderDao.queryObjectByOrderSn(orderSn);
+        return apiOrderMapper.queryObjectByOrderSn(orderSn);
     }
 
     public OrderVo queryObject(Integer id) {
-        return orderDao.queryObject(id);
+        return apiOrderMapper.queryObject(id);
     }
 
 
     public List<OrderVo> queryList(Map<String, Object> map) {
-        return orderDao.queryList(map);
+        return apiOrderMapper.queryList(map);
     }
 
 
     public int queryTotal(Map<String, Object> map) {
-        return orderDao.queryTotal(map);
+        return apiOrderMapper.queryTotal(map);
     }
 
 
     public void save(OrderVo order) {
-        orderDao.save(order);
+        apiOrderMapper.save(order);
     }
 
 
     public int update(OrderVo order) {
-        return orderDao.update(order);
+        return apiOrderMapper.update(order);
     }
 
 
     public void delete(Integer id) {
-        orderDao.delete(id);
+        apiOrderMapper.delete(id);
     }
 
 
     public void deleteBatch(Integer[] ids) {
-        orderDao.deleteBatch(ids);
+        apiOrderMapper.deleteBatch(ids);
     }
 
 

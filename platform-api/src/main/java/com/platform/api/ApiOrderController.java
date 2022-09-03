@@ -188,7 +188,8 @@ public class ApiOrderController extends ApiBaseAction {
             if (orderVo.getPay_status() == 2) {
                 WechatRefundApiResult result = WechatUtil.wxRefund(orderVo.getOrder_sn(),
                         0.01, 0.01);
-                if (result.getResult_code().equals("SUCCESS")) {
+//                if (result.getResult_code().equals("SUCCESS")) {
+                if ("SUCCESS".equals(result.getResult_code())) {
                     if (orderVo.getOrder_status() == 201) {
                         orderVo.setOrder_status(401);
                     } else if (orderVo.getOrder_status() == 300) {

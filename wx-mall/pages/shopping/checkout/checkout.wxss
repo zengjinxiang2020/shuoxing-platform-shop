@@ -23,6 +23,15 @@ page{
   line-height: 75rpx;
   text-align: center;
 }
+button{
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+  }
+
+.button-sp-area{
+    margin: 0 auto;
+    width: 60%;
+}
 
 .address-box .l{
     width: 155rpx;
@@ -54,6 +63,24 @@ page{
     line-height: 29rpx;
     color: #b4282d;
 }
+
+.delivery-box{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+}
+.delivery-box .z .icon{
+    margin-left: 20rpx;
+    height: 80rpx;
+    width:80rpx;
+}
+.delivery-box .z .txt{
+    font-size: 30rpx;
+    color: black;
+    font-weight: 999;
+}
+
 
 .address-box .m{
     flex: 1;
@@ -144,6 +171,14 @@ page{
     margin-top: 20rpx;
     width: 100%;
     height: auto;
+    overflow: hidden;
+    background: #fff;
+}
+
+.delivery-box{
+    margin-top: 20rpx;
+    width: 100%;
+    height: 100rpx;
     overflow: hidden;
     background: #fff;
 }
